@@ -1,13 +1,16 @@
-// =========================
-// 0. LIMPAR BANCO
-// =========================
+
+0. LIMPAR BANCO
+```
 MATCH (n)
 DETACH DELETE n;
+```
+
+---
 
 
-// =========================
-// 1. CONSTRAINTS
-// =========================
+=========================
+1. CONSTRAINTS
+=========================
 CREATE CONSTRAINT user_id_unique IF NOT EXISTS
 FOR (u:User) REQUIRE u.userId IS UNIQUE;
 
