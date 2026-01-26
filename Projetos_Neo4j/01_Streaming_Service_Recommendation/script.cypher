@@ -1,12 +1,9 @@
-
+=========================
 0. LIMPAR BANCO
-```
+=========================
+
 MATCH (n)
 DETACH DELETE n;
-```
-
----
-
 
 =========================
 1. CONSTRAINTS
@@ -30,9 +27,10 @@ CREATE CONSTRAINT director_name_unique IF NOT EXISTS
 FOR (d:Director) REQUIRE d.name IS UNIQUE;
 
 
-// =========================
-// 2. NODES — USERS
-// =========================
+=========================
+2. NODES — USERS
+=========================
+
 CREATE
 (u1:User {userId: 1, name: "User 1"}),
 (u2:User {userId: 2, name: "User 2"}),
@@ -46,9 +44,9 @@ CREATE
 (u10:User {userId: 10, name: "User 10"});
 
 
-// =========================
-// 3. NODES — GENRES
-// =========================
+=========================
+3. NODES — GENRES
+=========================
 CREATE
 (gAction:Genre {name: "Action"}),
 (gDrama:Genre {name: "Drama"}),
@@ -57,9 +55,9 @@ CREATE
 (gComedy:Genre {name: "Comedy"});
 
 
-// =========================
-// 4. NODES — MOVIES
-// =========================
+=========================
+4. NODES — MOVIES
+=========================
 CREATE
 (m1:Movie {movieId: 1, title: "Inception"}),
 (m2:Movie {movieId: 2, title: "The Dark Knight"}),
@@ -73,9 +71,10 @@ CREATE
 (m10:Movie {movieId: 10, title: "Joker"});
 
 
-// =========================
-// 5. NODES — SERIES
-// =========================
+=========================
+5. NODES — SERIES
+=========================
+
 CREATE
 (s1:Series {seriesId: 1, title: "Breaking Bad"}),
 (s2:Series {seriesId: 2, title: "Stranger Things"}),
@@ -89,9 +88,9 @@ CREATE
 (s10:Series {seriesId: 10, title: "Peaky Blinders"});
 
 
-// =========================
-// 6. NODES — ACTORS
-// =========================
+=========================
+6. NODES — ACTORS
+=========================
 CREATE
 (a1:Actor {name: "Leonardo DiCaprio"}),
 (a2:Actor {name: "Christian Bale"}),
@@ -105,9 +104,9 @@ CREATE
 (a10:Actor {name: "Joaquin Phoenix"});
 
 
-// =========================
-// 7. NODES — DIRECTORS
-// =========================
+=========================
+7. NODES — DIRECTORS
+=========================
 CREATE
 (d1:Director {name: "Christopher Nolan"}),
 (d2:Director {name: "David Fincher"}),
@@ -116,9 +115,9 @@ CREATE
 (d5:Director {name: "Vince Gilligan"});
 
 
-// =========================
-// 8. RELATIONSHIPS — GENRES
-// =========================
+=========================
+8. RELATIONSHIPS — GENRES
+=========================
 MATCH
 (m1:Movie {title:"Inception"}), (gSciFi:Genre {name:"Sci-Fi"}),
 (m2:Movie {title:"The Dark Knight"}), (gAction:Genre {name:"Action"}),
@@ -143,9 +142,9 @@ CREATE
 (m10)-[:IN_GENRE]->(gDrama);
 
 
-// =========================
-// 9. RELATIONSHIPS — SERIES GENRES
-// =========================
+=========================
+9. RELATIONSHIPS — SERIES GENRES
+=========================
 MATCH
 (s1:Series {title:"Breaking Bad"}),(gCrime),
 (s2:Series {title:"Stranger Things"}),(gSciFi),
@@ -170,9 +169,9 @@ CREATE
 (s10)-[:IN_GENRE]->(gCrime);
 
 
-// =========================
-// 10. RELATIONSHIPS — ACTORS
-// =========================
+=========================
+10. RELATIONSHIPS — ACTORS
+=========================
 MATCH
 (a1:Actor {name:"Leonardo DiCaprio"}),(m1:Movie {title:"Inception"}),
 (a2:Actor {name:"Christian Bale"}),(m2:Movie {title:"The Dark Knight"}),
@@ -197,9 +196,9 @@ CREATE
 (a10)-[:ACTED_IN]->(m10);
 
 
-// =========================
-// 11. RELATIONSHIPS — DIRECTORS
-// =========================
+=========================
+11. RELATIONSHIPS — DIRECTORS
+=========================
 MATCH
 (d1:Director {name:"Christopher Nolan"}),(m1:Movie {title:"Inception"}),
 (d1),(m2:Movie {title:"The Dark Knight"}),
@@ -218,9 +217,9 @@ CREATE
 (d5)-[:DIRECTED]->(s1);
 
 
-// =========================
-// 12. RELATIONSHIPS — WATCHED (COM RATING)
-// =========================
+=========================
+12. RELATIONSHIPS — WATCHED (COM RATING)
+=========================
 MATCH
 (u1:User {userId:1}), (u2:User {userId:2}), (u3:User {userId:3}), (u4:User {userId:4}), (u5:User {userId:5}),
 (m1:Movie {title:"Inception"}),(m2:Movie {title:"The Dark Knight"}),(m3:Movie {title:"Interstellar"}),
