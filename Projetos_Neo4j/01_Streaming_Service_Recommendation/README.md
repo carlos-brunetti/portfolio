@@ -46,4 +46,4 @@ O diagrama abaixo representa a estrutura do grafo, com os principais nós e rela
 
 Todo o script Cypher utilizado está no arquivo:
 
-
+[`script.cypher`](./script.cypher)
